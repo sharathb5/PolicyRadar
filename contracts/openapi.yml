@@ -1,0 +1,595 @@
+openapi: 3.0.3
+info:
+  title: Policy Radar API
+  version: 1.0.0
+  description: API for policy ingestion, classification, scoring, and retrieval
+
+servers:
+  - url: http://localhost:8000/api
+    description: Local development server
+  - url: https://api.policyradar.example.com
+    description: Production server
+
+security:
+  - ApiKeyAuth: []
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key for authentication
+
+  schemas:
+    PolicyListItem:
+      type: object
+      required:
+        - id
+        - title
+        - jurisdiction
+        - policy_type
+        - status
+        - scopes
+        - impact_score
+        - confidence
+        - effective_date
+        - last_updated_at
+        - source_name_official
+        - source_name_secondary
+        - what_might_change
+      properties:
+        id:
+          type: integer
+          description: Unique policy identifier
+        title:
+          type: string
+          description: Policy title
+        jurisdiction:
+          type: string
+          enum: [EU, US-Federal, US-CA, UK, OTHER]
+          description: Jurisdiction where policy applies
+        policy_type:
+          type: string
+          enum: [Disclosure, Pricing, Ban, Incentive, Supply-chain]
+          description: Type of policy
+        status:
+          type: string
+          enum: [Proposed, Adopted, Effective]
+          description: Current status of policy
+        scopes:
+          type: array
+          items:
+            type: integer
+            enum: [1, 2, 3]
+          description: Emissions scopes covered by policy
+        impact_score:
+          type: integer
+          minimum: 0
+          maximum: 100
+          description: Impact score from 0-100
+        confidence:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Confidence score from 0-1
+        effective_date:
+          type: string
+          format: date
+          description: Date when policy becomes effective
+        last_updated_at:
+          type: string
+          format: date
+          description: Date when policy was last updated
+        source_name_official:
+          type: string
+          description: Official source name
+        source_name_secondary:
+          type: string
+          nullable: true
+          description: Secondary source name
+        what_might_change:
+          type: string
+          description: Brief description of what might change
+
+    PolicyDetail:
+      allOf:
+        - $ref: '#/components/schemas/PolicyListItem'
+        - type: object
+          required:
+            - summary
+            - impact_factors
+            - mandatory
+            - sectors
+            - version
+            - history
+          properties:
+            summary:
+              type: string
+              description: Full summary of the policy
+            impact_factors:
+              type: object
+              description: Breakdown of impact scoring factors
+              properties:
+                mandatory:
+                  type: integer
+                  description: Points from mandatory/voluntary status
+                time_proximity:
+                  type: integer
+                  description: Points from time to effective date
+                scope_coverage:
+                  type: integer
+                  description: Points from scope coverage
+                sector_breadth:
+                  type: integer
+                  description: Points from sector breadth
+                disclosure_complexity:
+                  type: integer
+                  description: Points from disclosure complexity
+            mandatory:
+              type: boolean
+              description: Whether policy is mandatory
+            sectors:
+              type: array
+              items:
+                type: string
+              nullable: true
+              description: Sectors affected by policy
+            version:
+              type: integer
+              description: Version number of policy
+            history:
+              type: array
+              description: Version history of policy changes
+              items:
+                type: object
+                properties:
+                  changed_at:
+                    type: string
+                    format: date-time
+                  version_from:
+                    type: integer
+                  version_to:
+                    type: integer
+                  diff:
+                    type: object
+                    description: Summary of changes
+
+    SavedItem:
+      type: object
+      required:
+        - id
+        - policy_id
+        - saved_at
+      properties:
+        id:
+          type: integer
+        policy_id:
+          type: integer
+        saved_at:
+          type: string
+          format: date-time
+
+    SavedGroup:
+      type: object
+      properties:
+        window:
+          type: string
+          enum: [<=90d, 90-365d, >365d]
+          description: Effective window grouping
+        count:
+          type: integer
+        policies:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyListItem'
+
+    SavedResponse:
+      type: object
+      properties:
+        <=90d:
+          $ref: '#/components/schemas/SavedGroup'
+        "90-365d":
+          $ref: '#/components/schemas/SavedGroup'
+        ">365d":
+          $ref: '#/components/schemas/SavedGroup'
+
+    DigestItem:
+      type: object
+      required:
+        - id
+        - title
+        - score
+        - why_it_matters
+        - source_name
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        score:
+          type: integer
+          minimum: 0
+          maximum: 100
+        why_it_matters:
+          type: string
+        source_name:
+          type: string
+
+    DigestPreview:
+      type: object
+      required:
+        - top5
+        - generated_at
+      properties:
+        top5:
+          type: array
+          items:
+            $ref: '#/components/schemas/DigestItem'
+        generated_at:
+          type: string
+          format: date-time
+
+    DigestFilters:
+      type: object
+      properties:
+        q:
+          type: string
+        region:
+          type: array
+          items:
+            type: string
+            enum: [EU, US-Federal, US-CA, UK, OTHER]
+        policy_type:
+          type: array
+          items:
+            type: string
+            enum: [Disclosure, Pricing, Ban, Incentive, Supply-chain]
+        status:
+          type: array
+          items:
+            type: string
+            enum: [Proposed, Adopted, Effective]
+        scopes:
+          type: array
+          items:
+            type: integer
+            enum: [1, 2, 3]
+        impact_min:
+          type: integer
+          minimum: 0
+          maximum: 100
+        confidence_min:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+        effective_before:
+          type: string
+          format: date
+        effective_after:
+          type: string
+          format: date
+
+    PolicyListResponse:
+      type: object
+      required:
+        - items
+        - total
+        - page
+        - page_size
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyListItem'
+        total:
+          type: integer
+        page:
+          type: integer
+        page_size:
+          type: integer
+
+    Error:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+
+    HealthStatus:
+      type: object
+      required:
+        - status
+        - database
+        - last_runs
+      properties:
+        status:
+          type: string
+          enum: [healthy, unhealthy]
+        database:
+          type: string
+          enum: [connected, disconnected]
+        last_runs:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              source:
+                type: string
+              status:
+                type: string
+              last_run_at:
+                type: string
+                format: date-time
+
+paths:
+  /healthz:
+    get:
+      tags:
+        - Health
+      summary: Health check endpoint
+      description: Returns system health status including database connectivity and last ingestion runs
+      responses:
+        '200':
+          description: Health status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatus'
+
+  /policies:
+    get:
+      tags:
+        - Policies
+      summary: List policies with filtering and pagination
+      description: Get paginated list of policies with optional filtering and sorting
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+          description: Search query string
+        - name: region
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+              enum: [EU, US-Federal, US-CA, UK, OTHER]
+          style: form
+          explode: false
+          description: Filter by jurisdiction
+        - name: policy_type
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+              enum: [Disclosure, Pricing, Ban, Incentive, Supply-chain]
+          style: form
+          explode: false
+          description: Filter by policy type
+        - name: status
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+              enum: [Proposed, Adopted, Effective]
+          style: form
+          explode: false
+          description: Filter by status
+        - name: scopes
+          in: query
+          schema:
+            type: array
+            items:
+              type: integer
+              enum: [1, 2, 3]
+          style: form
+          explode: false
+          description: Filter by emissions scopes
+        - name: impact_min
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 100
+          description: Minimum impact score
+        - name: confidence_min
+          in: query
+          schema:
+            type: number
+            format: float
+            minimum: 0
+            maximum: 1
+          description: Minimum confidence score
+        - name: effective_before
+          in: query
+          schema:
+            type: string
+            format: date
+          description: Filter by effective date before
+        - name: effective_after
+          in: query
+          schema:
+            type: string
+            format: date
+          description: Filter by effective date after
+        - name: sort
+          in: query
+          schema:
+            type: string
+            enum: [impact, effective, updated]
+            default: impact
+          description: Sort field
+        - name: order
+          in: query
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: desc
+          description: Sort order
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+          description: Page number
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+          description: Items per page
+      responses:
+        '200':
+          description: List of policies
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyListResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /policies/{id}:
+    get:
+      tags:
+        - Policies
+      summary: Get policy detail
+      description: Get full details of a specific policy including impact factors, version, and history
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Policy ID
+      responses:
+        '200':
+          description: Policy details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyDetail'
+        '404':
+          description: Policy not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /saved/{policy_id}:
+    post:
+      tags:
+        - Saved
+      summary: Toggle saved status
+      description: Create or delete a saved policy item
+      parameters:
+        - name: policy_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Policy ID to save/unsave
+      responses:
+        '200':
+          description: Saved status toggled
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  saved:
+                    type: boolean
+                    description: Current saved status after toggle
+        '404':
+          description: Policy not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /saved:
+    get:
+      tags:
+        - Saved
+      summary: Get saved policies grouped by effective window
+      description: Returns saved policies grouped by effective window (<=90d, 90-365d, >365d)
+      responses:
+        '200':
+          description: Saved policies grouped by effective window
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SavedResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /digest/preview:
+    post:
+      tags:
+        - Digest
+      summary: Generate digest preview
+      description: Generate a preview of the top 5 policies by impact score with optional filters
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DigestFilters'
+      responses:
+        '200':
+          description: Digest preview with top 5 policies
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DigestPreview'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
