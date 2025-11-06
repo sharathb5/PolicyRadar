@@ -37,3 +37,5 @@ playwright/.cache/
 # Embedded repos (prevent accidental submodule blobs)
 code_frontend/code/**/.git/
 md/
+*.md
+*.md*
