@@ -155,6 +155,11 @@ components:
                   diff:
                     type: object
                     description: Summary of changes
+            likely_affects:
+              type: array
+              description: Static hints for likely affected areas
+              items:
+                type: string
 
     SavedItem:
       type: object
@@ -176,7 +181,7 @@ components:
       properties:
         window:
           type: string
-          enum: [<=90d, 90-365d, >365d]
+          enum: ["<=90d", "90-365d", ">365d"]
           description: Effective window grouping
         count:
           type: integer

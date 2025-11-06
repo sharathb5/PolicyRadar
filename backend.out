@@ -1,0 +1,370 @@
+INFO:     Will watch for changes in these directories: ['/Users/sharath/Policy Radar/PolicyRadar-backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [65878] using WatchFiles
+2025-11-06 16:24:37,579 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [65890]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [65890]
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+2025-11-06 16:35:32,338 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [73014]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+2025-11-06 16:35:33,278 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [73024]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/db/seed.py', 'app/config.py'. Reloading...
+2025-11-06 16:35:33,737 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [73041]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 16:35:34,077 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [73046]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [73046]
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+2025-11-06 16:46:50,320 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [78487]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 16:46:50,635 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [78491]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/core/hashing.py', 'tests/test_field_names.py', 'app/ingest/pipeline.py', 'app/db/migrations/versions/001_initial.py', 'tests/test_api.py', 'app/models/policy.py', 'tests/test_classification.py', 'app/api/routes.py', 'app/core/classify.py', 'tests/__init__.py', 'app/main.py', 'app/jobs/cli.py', 'tests/conftest.py', 'tests/test_scoring.py', 'app/api/schemas.py', 'app/db/session.py', 'app/ingest/fetchers.py', 'app/core/classification.py', 'app/core/scoring.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [78491]
+2025-11-06 16:46:53,623 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [78534]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/db/migrations/env.py', 'app/core/hashing.py', 'tests/test_field_names.py', 'app/ingest/pipeline.py', 'app/db/migrations/versions/001_initial.py', 'tests/test_api.py', 'app/models/policy.py', 'tests/test_classification.py', 'app/api/routes.py', 'app/core/classify.py', 'tests/__init__.py', 'app/main.py', 'app/jobs/cli.py', 'tests/conftest.py', 'tests/test_scoring.py', 'app/api/schemas.py', 'app/ingest/fetchers.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [78534]
+2025-11-06 16:46:54,163 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [78543]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [78543]
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+2025-11-06 16:47:03,906 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [78646]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 16:47:04,222 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [78654]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/core/hashing.py', 'tests/test_field_names.py', 'app/ingest/pipeline.py', 'app/db/migrations/versions/001_initial.py', 'tests/test_api.py', 'app/models/policy.py', 'tests/test_classification.py', 'app/api/routes.py', 'app/core/classify.py', 'tests/__init__.py', 'app/main.py', 'app/jobs/cli.py', 'tests/conftest.py', 'tests/test_scoring.py', 'app/api/schemas.py', 'app/db/session.py', 'app/ingest/fetchers.py', 'app/core/classification.py', 'app/core/scoring.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [78654]
+2025-11-06 16:47:14,182 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [78770]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/db/migrations/env.py', 'tests/test_field_names.py', 'app/ingest/pipeline.py', 'tests/test_api.py', 'app/models/policy.py', 'tests/test_classification.py', 'app/api/routes.py', 'app/core/classify.py', 'app/main.py', 'tests/conftest.py', 'tests/test_scoring.py', 'app/api/schemas.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [78770]
+2025-11-06 16:47:14,710 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [78782]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/core/likely_affects.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [78782]
+2025-11-06 16:47:40,079 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [78999]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/api/routes.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [78999]
+2025-11-06 16:47:56,862 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [79147]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/api/schemas.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [79147]
+2025-11-06 16:48:07,056 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [79243]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [79243]
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+2025-11-06 16:48:31,624 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [79469]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 16:48:31,936 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [79481]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'tests/unit/test_likely_affects.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [79481]
+WARNING:  WatchFiles detected changes in 'tests/unit/test_likely_affects.py'. Reloading...
+2025-11-06 16:49:03,256 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [79824]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 16:49:03,540 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [79833]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'tests/contract/test_policy_detail_likely_affects.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [79833]
+WARNING:  WatchFiles detected changes in 'tests/contract/test_policy_detail_likely_affects.py'. Reloading...
+2025-11-06 16:49:16,653 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [80035]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 16:49:16,954 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [80044]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/api/schemas.py', 'tests/unit/test_likely_affects.py', 'tests/contract/test_policy_detail_likely_affects.py', 'app/core/likely_affects.py', 'app/api/routes.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [80044]
+2025-11-06 16:49:39,171 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [80253]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [80253]
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+2025-11-06 16:49:46,076 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [80332]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 16:49:46,381 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [80340]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/db/migrations/env.py', 'app/core/hashing.py', 'tests/test_field_names.py', 'app/ingest/pipeline.py', 'app/db/migrations/versions/001_initial.py', 'tests/contract/test_policy_detail_likely_affects.py', 'tests/test_api.py', 'app/models/policy.py', 'tests/test_classification.py', 'app/api/routes.py', 'app/core/classify.py', 'tests/__init__.py', 'app/main.py', 'app/jobs/cli.py', 'tests/conftest.py', 'tests/test_scoring.py', 'app/api/schemas.py', 'app/db/session.py', 'app/ingest/fetchers.py', 'tests/unit/test_likely_affects.py', 'app/core/classification.py', 'app/core/likely_affects.py', 'app/core/scoring.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [80340]
+2025-11-06 16:50:10,292 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [80551]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/core/hashing.py', 'tests/test_field_names.py', 'app/ingest/pipeline.py', 'app/db/migrations/versions/001_initial.py', 'tests/contract/test_policy_detail_likely_affects.py', 'tests/test_api.py', 'app/models/policy.py', 'tests/test_classification.py', 'app/api/routes.py', 'app/core/classify.py', 'tests/__init__.py', 'app/main.py', 'app/jobs/cli.py', 'tests/conftest.py', 'tests/test_scoring.py', 'app/api/schemas.py', 'app/db/session.py', 'app/ingest/fetchers.py', 'tests/unit/test_likely_affects.py', 'app/core/classification.py', 'app/core/likely_affects.py', 'app/core/scoring.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [80551]
+2025-11-06 16:50:26,713 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [80723]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/db/migrations/env.py', 'tests/test_field_names.py', 'app/ingest/pipeline.py', 'tests/contract/test_policy_detail_likely_affects.py', 'tests/test_api.py', 'app/models/policy.py', 'tests/test_classification.py', 'app/api/routes.py', 'app/core/classify.py', 'tests/__init__.py', 'app/main.py', 'tests/conftest.py', 'tests/test_scoring.py', 'app/api/schemas.py', 'app/ingest/fetchers.py', 'tests/unit/test_likely_affects.py', 'app/core/likely_affects.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [80723]
+2025-11-06 16:50:27,252 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [80737]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [80737]
+2025-11-06 16:50:37,437 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [80857]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [80857]
+2025-11-06 16:50:37,948 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [80859]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [80859]
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+2025-11-06 17:00:46,339 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [85670]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 17:00:46,656 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [85680]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [85680]
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+2025-11-06 17:01:01,628 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [85836]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 17:01:01,934 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [85843]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/db/migrations/env.py', 'app/core/hashing.py', 'tests/test_field_names.py', 'app/ingest/pipeline.py', 'app/db/migrations/versions/001_initial.py', 'tests/contract/test_policy_detail_likely_affects.py', 'tests/test_api.py', 'app/models/policy.py', 'tests/test_classification.py', 'app/api/routes.py', 'app/core/classify.py', 'tests/__init__.py', 'app/main.py', 'app/jobs/cli.py', 'tests/conftest.py', 'tests/test_scoring.py', 'app/api/schemas.py', 'app/db/session.py', 'app/ingest/fetchers.py', 'tests/unit/test_likely_affects.py', 'app/core/classification.py', 'app/core/likely_affects.py', 'app/core/scoring.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [85843]
+2025-11-06 17:01:05,218 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [85885]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/db/migrations/env.py', 'app/ingest/pipeline.py', 'tests/contract/test_policy_detail_likely_affects.py', 'app/models/policy.py', 'app/api/routes.py', 'app/core/classify.py', 'app/main.py', 'tests/test_scoring.py', 'app/api/schemas.py', 'tests/unit/test_likely_affects.py', 'app/core/likely_affects.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [85885]
+2025-11-06 17:01:05,770 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [85894]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [85894]
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+2025-11-06 17:01:14,389 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [85985]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 17:01:14,691 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [85987]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/core/hashing.py', 'tests/test_field_names.py', 'app/ingest/pipeline.py', 'app/db/migrations/versions/001_initial.py', 'tests/contract/test_policy_detail_likely_affects.py', 'tests/test_api.py', 'app/models/policy.py', 'tests/test_classification.py', 'app/api/routes.py', 'app/core/classify.py', 'tests/__init__.py', 'app/main.py', 'app/jobs/cli.py', 'tests/conftest.py', 'tests/test_scoring.py', 'app/api/schemas.py', 'app/db/session.py', 'app/ingest/fetchers.py', 'tests/unit/test_likely_affects.py', 'app/core/classification.py', 'app/core/likely_affects.py', 'app/core/scoring.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [85987]
+2025-11-06 17:01:24,513 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [86131]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/db/migrations/env.py', 'tests/test_field_names.py', 'app/ingest/pipeline.py', 'app/db/migrations/versions/001_initial.py', 'tests/contract/test_policy_detail_likely_affects.py', 'tests/test_api.py', 'tests/test_classification.py', 'app/models/policy.py', 'app/api/routes.py', 'app/core/classify.py', 'tests/__init__.py', 'app/main.py', 'app/jobs/cli.py', 'tests/conftest.py', 'tests/test_scoring.py', 'app/api/schemas.py', 'tests/unit/test_likely_affects.py', 'app/core/likely_affects.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [86131]
+2025-11-06 17:01:25,065 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [86143]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 17:01:39,945 - app.api.routes - INFO - ✅ API key verified: 1bb26b00a0...
+INFO:     127.0.0.1:55906 - "GET /api/policies?page=1&page_size=1 HTTP/1.1" 200 OK
+2025-11-06 17:01:40,115 - app.api.routes - INFO - ✅ API key verified: 1bb26b00a0...
+INFO:     127.0.0.1:55906 - "GET /api/policies/7 HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [86143]
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+2025-11-06 17:02:50,666 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [86943]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 17:02:50,974 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [86953]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/db/migrations/env.py', 'app/core/hashing.py', 'tests/test_field_names.py', 'app/ingest/pipeline.py', 'app/db/migrations/versions/001_initial.py', 'tests/contract/test_policy_detail_likely_affects.py', 'tests/test_api.py', 'app/models/policy.py', 'tests/test_classification.py', 'app/api/routes.py', 'app/core/classify.py', 'tests/__init__.py', 'app/main.py', 'app/jobs/cli.py', 'tests/conftest.py', 'tests/test_scoring.py', 'app/api/schemas.py', 'app/db/session.py', 'app/ingest/fetchers.py', 'tests/unit/test_likely_affects.py', 'app/core/classification.py', 'app/core/likely_affects.py', 'app/core/scoring.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [86953]
+WARNING:  WatchFiles detected changes in 'app/db/migrations/env.py', 'app/ingest/pipeline.py', 'tests/contract/test_policy_detail_likely_affects.py', 'tests/test_api.py', 'app/models/policy.py', 'tests/test_classification.py', 'app/api/routes.py', 'app/core/classify.py', 'app/main.py', 'tests/conftest.py', 'tests/test_scoring.py', 'app/api/schemas.py', 'tests/unit/test_likely_affects.py', 'app/core/likely_affects.py'. Reloading...
+2025-11-06 17:03:01,204 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [87068]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 17:03:01,518 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [87079]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [87079]
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+2025-11-06 17:06:39,404 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [89096]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 17:06:40,388 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [89117]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [89117]
+WARNING:  WatchFiles detected changes in 'app/config.py', 'app/db/seed.py'. Reloading...
+2025-11-06 17:06:41,201 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [89124]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-11-06 17:06:41,608 - app.main - INFO - ✅ Policy Radar API started successfully
+INFO:     Started server process [89134]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.

@@ -1,0 +1,371 @@
+[
+  {
+    "id": "case_001",
+    "description": "High impact policy - Example 1 from scoring.md",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2026-01-01",
+      "reference_date": "2025-10-15",
+      "scopes": [1, 2, 3],
+      "sectors": ["manufacturing", "services", "energy", "transportation", "construction", "agriculture"],
+      "disclosure_complexity": "high"
+    },
+    "expected": {
+      "impact_score": 100,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 20,
+        "scope_coverage": 20,
+        "sector_breadth": 20,
+        "disclosure_complexity": 20
+      },
+      "rationale": "All factors at maximum: mandatory (+20), ≤12m (+20), all scopes (+20 capped), cross-sector 6+ sectors (+20), high complexity (+20) = 100 (capped)"
+    }
+  },
+  {
+    "id": "case_002",
+    "description": "Medium impact policy - Example 2 from scoring.md",
+    "input": {
+      "mandatory": false,
+      "effective_date": "2027-06-01",
+      "reference_date": "2025-10-15",
+      "scopes": [1, 2],
+      "sectors": ["manufacturing", "energy", "transportation"],
+      "disclosure_complexity": "moderate"
+    },
+    "expected": {
+      "impact_score": 60,
+      "impact_factors": {
+        "mandatory": 10,
+        "time_proximity": 10,
+        "scope_coverage": 14,
+        "sector_breadth": 12,
+        "disclosure_complexity": 14
+      },
+      "rationale": "Voluntary (+10), 12-24m (+10), scopes 1+2 (+14), medium 3-5 sectors (+12), moderate complexity (+14) = 60"
+    }
+  },
+  {
+    "id": "case_003",
+    "description": "Low impact policy - Example 3 from scoring.md",
+    "input": {
+      "mandatory": false,
+      "effective_date": "2028-01-01",
+      "reference_date": "2025-10-15",
+      "scopes": [1],
+      "sectors": ["energy"],
+      "disclosure_complexity": "basic"
+    },
+    "expected": {
+      "impact_score": 29,
+      "impact_factors": {
+        "mandatory": 10,
+        "time_proximity": 0,
+        "scope_coverage": 7,
+        "sector_breadth": 5,
+        "disclosure_complexity": 7
+      },
+      "rationale": "Voluntary (+10), >24m (+0), scope 1 only (+7), narrow 1-2 sectors (+5), basic complexity (+7) = 29"
+    }
+  },
+  {
+    "id": "case_004",
+    "description": "Edge case: Exactly 365 days (≤12m boundary)",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2026-10-15",
+      "reference_date": "2025-10-15",
+      "scopes": [1, 2],
+      "sectors": ["manufacturing"],
+      "disclosure_complexity": "moderate"
+    },
+    "expected": {
+      "impact_score": 65,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 20,
+        "scope_coverage": 14,
+        "sector_breadth": 5,
+        "disclosure_complexity": 14
+      },
+      "rationale": "Exactly 365 days should be ≤12m (+20)"
+    }
+  },
+  {
+    "id": "case_005",
+    "description": "Edge case: Exactly 366 days (12-24m boundary)",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2026-10-16",
+      "reference_date": "2025-10-15",
+      "scopes": [2],
+      "sectors": ["energy"],
+      "disclosure_complexity": "basic"
+    },
+    "expected": {
+      "impact_score": 42,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 10,
+        "scope_coverage": 7,
+        "sector_breadth": 5,
+        "disclosure_complexity": 7
+      },
+      "rationale": "Exactly 366 days should be 12-24m (+10)"
+    }
+  },
+  {
+    "id": "case_006",
+    "description": "Edge case: Exactly 730 days (12-24m boundary)",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2027-10-15",
+      "reference_date": "2025-10-15",
+      "scopes": [1, 2, 3],
+      "sectors": ["manufacturing"],
+      "disclosure_complexity": "moderate"
+    },
+    "expected": {
+      "impact_score": 69,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 10,
+        "scope_coverage": 20,
+        "sector_breadth": 5,
+        "disclosure_complexity": 14
+      },
+      "rationale": "Exactly 730 days should be 12-24m (+10)"
+    }
+  },
+  {
+    "id": "case_007",
+    "description": "Edge case: Exactly 731 days (>24m boundary)",
+    "input": {
+      "mandatory": false,
+      "effective_date": "2027-10-16",
+      "reference_date": "2025-10-15",
+      "scopes": [1],
+      "sectors": ["energy"],
+      "disclosure_complexity": "basic"
+    },
+    "expected": {
+      "impact_score": 29,
+      "impact_factors": {
+        "mandatory": 10,
+        "time_proximity": 0,
+        "scope_coverage": 7,
+        "sector_breadth": 5,
+        "disclosure_complexity": 7
+      },
+      "rationale": "Exactly 731 days should be >24m (+0)"
+    }
+  },
+  {
+    "id": "case_008",
+    "description": "Scope coverage capping test - all 3 scopes should cap at 20",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2026-01-01",
+      "reference_date": "2025-10-15",
+      "scopes": [1, 2, 3],
+      "sectors": ["manufacturing"],
+      "disclosure_complexity": "basic"
+    },
+    "expected": {
+      "impact_score": 62,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 20,
+        "scope_coverage": 20,
+        "sector_breadth": 5,
+        "disclosure_complexity": 7
+      },
+      "rationale": "All 3 scopes should give 20 points (7+7+7=21, capped at 20)"
+    }
+  },
+  {
+    "id": "case_009",
+    "description": "Sector breadth: narrow (1-2 sectors)",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2026-01-01",
+      "reference_date": "2025-10-15",
+      "scopes": [1],
+      "sectors": ["energy"],
+      "disclosure_complexity": "moderate"
+    },
+    "expected": {
+      "impact_score": 61,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 20,
+        "scope_coverage": 7,
+        "sector_breadth": 5,
+        "disclosure_complexity": 14
+      },
+      "rationale": "1 sector = narrow (+5)"
+    }
+  },
+  {
+    "id": "case_010",
+    "description": "Sector breadth: medium (3-5 sectors)",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2026-01-01",
+      "reference_date": "2025-10-15",
+      "scopes": [1, 2],
+      "sectors": ["manufacturing", "energy", "transportation"],
+      "disclosure_complexity": "moderate"
+    },
+    "expected": {
+      "impact_score": 76,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 20,
+        "scope_coverage": 14,
+        "sector_breadth": 12,
+        "disclosure_complexity": 14
+      },
+      "rationale": "3 sectors = medium (+12)"
+    }
+  },
+  {
+    "id": "case_011",
+    "description": "Sector breadth: cross-sector (6+ sectors)",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2026-01-01",
+      "reference_date": "2025-10-15",
+      "scopes": [1, 2],
+      "sectors": ["manufacturing", "energy", "transportation", "agriculture", "construction", "services"],
+      "disclosure_complexity": "moderate"
+    },
+    "expected": {
+      "impact_score": 84,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 20,
+        "scope_coverage": 14,
+        "sector_breadth": 20,
+        "disclosure_complexity": 14
+      },
+      "rationale": "6+ sectors = cross-sector (+20)"
+    }
+  },
+  {
+    "id": "case_012",
+    "description": "Disclosure complexity: none (0 points)",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2026-01-01",
+      "reference_date": "2025-10-15",
+      "scopes": [1],
+      "sectors": ["energy"],
+      "disclosure_complexity": "none"
+    },
+    "expected": {
+      "impact_score": 52,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 20,
+        "scope_coverage": 7,
+        "sector_breadth": 5,
+        "disclosure_complexity": 0
+      },
+      "rationale": "No disclosure complexity = 0 points"
+    }
+  },
+  {
+    "id": "case_013",
+    "description": "Disclosure complexity: basic (+7 points)",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2026-01-01",
+      "reference_date": "2025-10-15",
+      "scopes": [1],
+      "sectors": ["energy"],
+      "disclosure_complexity": "basic"
+    },
+    "expected": {
+      "impact_score": 59,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 20,
+        "scope_coverage": 7,
+        "sector_breadth": 5,
+        "disclosure_complexity": 7
+      },
+      "rationale": "Basic disclosure = +7 points"
+    }
+  },
+  {
+    "id": "case_014",
+    "description": "Disclosure complexity: moderate (+14 points)",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2026-01-01",
+      "reference_date": "2025-10-15",
+      "scopes": [1],
+      "sectors": ["energy"],
+      "disclosure_complexity": "moderate"
+    },
+    "expected": {
+      "impact_score": 66,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 20,
+        "scope_coverage": 7,
+        "sector_breadth": 5,
+        "disclosure_complexity": 14
+      },
+      "rationale": "Moderate disclosure = +14 points"
+    }
+  },
+  {
+    "id": "case_015",
+    "description": "Disclosure complexity: high (+20 points)",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2026-01-01",
+      "reference_date": "2025-10-15",
+      "scopes": [1],
+      "sectors": ["energy"],
+      "disclosure_complexity": "high"
+    },
+    "expected": {
+      "impact_score": 72,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 20,
+        "scope_coverage": 7,
+        "sector_breadth": 5,
+        "disclosure_complexity": 20
+      },
+      "rationale": "High disclosure complexity = +20 points"
+    }
+  },
+  {
+    "id": "case_016",
+    "description": "Total score capping at 100 - exceeds 100 but should cap",
+    "input": {
+      "mandatory": true,
+      "effective_date": "2026-01-01",
+      "reference_date": "2025-10-15",
+      "scopes": [1, 2, 3],
+      "sectors": ["manufacturing", "energy", "transportation", "agriculture", "construction", "services", "retail"],
+      "disclosure_complexity": "high"
+    },
+    "expected": {
+      "impact_score": 100,
+      "impact_factors": {
+        "mandatory": 20,
+        "time_proximity": 20,
+        "scope_coverage": 20,
+        "sector_breadth": 20,
+        "disclosure_complexity": 20
+      },
+      "rationale": "Sum = 100, should cap at 100 (not exceed)"
+    }
+  }
+]
+

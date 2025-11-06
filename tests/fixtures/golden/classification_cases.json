@@ -1,0 +1,136 @@
+[
+  {
+    "id": "case_001",
+    "description": "High confidence disclosure policy with mandatory keywords",
+    "input": {
+      "title": "EU ESRS Update on Value-Chain Data Granularity",
+      "text": "The European Sustainability Reporting Standards (ESRS) update introduces enhanced requirements for value-chain data granularity. Companies must provide detailed supplier-level emissions data and category mappings to ensure alignment with CDP and CSRD frameworks. This is mandatory for all large companies.",
+      "jurisdiction": "EU",
+      "source": "European Commission"
+    },
+    "expected": {
+      "policy_type": "Disclosure",
+      "status": "Adopted",
+      "scopes": [1, 2, 3],
+      "jurisdiction": "EU",
+      "mandatory": true,
+      "confidence": 0.87,
+      "rationale": "Contains 'disclosure', 'reporting', 'mandatory', 'must' keywords. Mentions 'supplier', 'value-chain' indicating Scope 3. Status inferred from 'update' and 'introduces' suggesting already adopted."
+    }
+  },
+  {
+    "id": "case_002",
+    "description": "Pricing policy with carbon tax keywords",
+    "input": {
+      "title": "UK ETS Expansion: Industrial Coverage & Free Allocation Changes",
+      "text": "The UK Emissions Trading Scheme proposes expanding coverage to additional industrial sectors while phasing out free allocation for certain high-emitting industries. The proposal includes transitional support mechanisms and enhanced monitoring requirements.",
+      "jurisdiction": "UK",
+      "source": "UK Government"
+    },
+    "expected": {
+      "policy_type": "Pricing",
+      "status": "Proposed",
+      "scopes": [1],
+      "jurisdiction": "UK",
+      "mandatory": true,
+      "confidence": 0.76,
+      "rationale": "Contains 'trading scheme', 'allocation', 'proposes' indicating pricing mechanism and proposed status. Industrial focus suggests Scope 1 emissions. 'Proposes' indicates Proposed status."
+    }
+  },
+  {
+    "id": "case_003",
+    "description": "Ban/phase-out policy with enforcement keywords",
+    "input": {
+      "title": "California Methane LDAR Update",
+      "text": "California has updated its Leak Detection and Repair (LDAR) requirements for methane emissions. The new rules mandate more frequent monitoring intervals and require detailed methane-intensity reporting for oil and gas operations.",
+      "jurisdiction": "US-CA",
+      "source": "California OAL"
+    },
+    "expected": {
+      "policy_type": "Ban",
+      "status": "Effective",
+      "scopes": [1],
+      "jurisdiction": "US-CA",
+      "mandatory": true,
+      "confidence": 0.79,
+      "rationale": "Contains 'requirements', 'mandate', 'require' indicating mandatory ban. 'Updated' and 'new rules' suggests Effective status. Direct emissions from oil/gas suggests Scope 1."
+    }
+  },
+  {
+    "id": "case_004",
+    "description": "Incentive policy with tax credit keywords",
+    "input": {
+      "title": "US Federal Clean Energy Tax Credit Extension",
+      "text": "The Inflation Reduction Act tax credits for clean energy investments have been extended through 2035. Enhanced credits are available for projects meeting domestic content and prevailing wage requirements.",
+      "jurisdiction": "US-Federal",
+      "source": "U.S. Department of Treasury"
+    },
+    "expected": {
+      "policy_type": "Incentive",
+      "status": "Adopted",
+      "scopes": [2],
+      "jurisdiction": "US-Federal",
+      "mandatory": false,
+      "confidence": 0.88,
+      "rationale": "Contains 'tax credit', 'incentive', 'credits' indicating Incentive type. 'Have been extended' indicates Adopted status. Clean energy suggests Scope 2. Voluntary (tax credits are optional)."
+    }
+  },
+  {
+    "id": "case_005",
+    "description": "Supply-chain policy with due diligence keywords",
+    "input": {
+      "title": "EU Corporate Sustainability Due Diligence Directive",
+      "text": "The CSDDD requires large companies to conduct human rights and environmental due diligence throughout their value chains. Companies must identify, prevent, mitigate, and account for adverse impacts, with civil liability for non-compliance.",
+      "jurisdiction": "EU",
+      "source": "European Commission"
+    },
+    "expected": {
+      "policy_type": "Supply-chain",
+      "status": "Adopted",
+      "scopes": [1, 2, 3],
+      "jurisdiction": "EU",
+      "mandatory": true,
+      "confidence": 0.91,
+      "rationale": "Contains 'due diligence', 'value chains', 'supply chain' indicating Supply-chain type. 'Requires', 'must', 'liability' indicate mandatory. 'Value chains' suggests all scopes. 'Requires' indicates Adopted status."
+    }
+  },
+  {
+    "id": "case_006",
+    "description": "Low confidence policy with ambiguous keywords",
+    "input": {
+      "title": "US Federal Scope 3 Reporting Guidance",
+      "text": "The EPA proposes standardized guidance for Scope 3 emissions reporting across federal contractors. The guidance establishes calculation methodologies, data quality requirements, and reporting thresholds for 15 Scope 3 categories.",
+      "jurisdiction": "US-Federal",
+      "source": "U.S. EPA"
+    },
+    "expected": {
+      "policy_type": "Disclosure",
+      "status": "Proposed",
+      "scopes": [3],
+      "jurisdiction": "US-Federal",
+      "mandatory": false,
+      "confidence": 0.69,
+      "rationale": "Contains 'reporting', 'guidance' indicating Disclosure. 'Proposes' indicates Proposed status. Explicitly mentions Scope 3. 'Guidance' (not mandate) suggests voluntary, but ambiguity lowers confidence."
+    }
+  },
+  {
+    "id": "case_007",
+    "description": "Multi-scope policy with value chain references",
+    "input": {
+      "title": "EU CBAM Reporting Phase",
+      "text": "The Carbon Border Adjustment Mechanism (CBAM) enters its reporting phase, requiring importers to declare embedded emissions in covered goods. Supplier declarations and detailed emissions calculations become mandatory for steel, cement, aluminum, fertilizers, and electricity.",
+      "jurisdiction": "EU",
+      "source": "European Commission (Taxation & Customs)"
+    },
+    "expected": {
+      "policy_type": "Pricing",
+      "status": "Effective",
+      "scopes": [1, 3],
+      "jurisdiction": "EU",
+      "mandatory": true,
+      "confidence": 0.84,
+      "rationale": "Contains 'border adjustment', 'mechanism' indicating Pricing. 'Enters its reporting phase' suggests Effective. 'Embedded emissions', 'supplier' suggest Scope 1 and 3. 'Mandatory' indicates mandatory status."
+    }
+  }
+]
+
