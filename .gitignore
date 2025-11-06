@@ -1,77 +1,38 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-ENV/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Testing
-.pytest_cache/
-.coverage
-.coverage.*
-htmlcov/
-.tox/
-coverage.xml
-*.cover
-.hypothesis/
-
-# Node
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# Next.js
-.next/
-out/
-build/
-
-# Playwright
-playwright-report/
-test-results/
-playwright/.cache/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
 # OS
 .DS_Store
-Thumbs.db
 
-# Environment variables
-.env
-.env.local
-.env*.local
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-
-# Logs
+# Node/Next
+node_modules/
+.next/
+**/.next/
+out/
+**/out/
+coverage/
 *.log
-logs/
 
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# Env files
+*.env
+*.env.*
+!.env.example
+policy-radar-frontend/.env.local
+Code_frontend/.env.local
+
+# Build artifacts and runtime outputs
+frontend.out
+backend.out
+agent_monitor_loop.log
+
+# Playwright / test artifacts
+playwright-report/
+playwright/.cache/
+
+# Embedded repos (prevent accidental submodule blobs)
+code_frontend/code/**/.git/
